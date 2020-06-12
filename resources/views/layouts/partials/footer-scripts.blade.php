@@ -1,13 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: javad
- * Date: 6/2/19
- * Time: 11:09 PM
- */
 
-
-?>
 
 <script src="{{asset("theme/assets/plugins/jquery/jquery.min.js")}} " ></script>
 <script src="{{asset("theme/assets/plugins/bootstrap/js/tether.min.js")}} " ></script>
@@ -36,8 +27,14 @@
 <script src="{{ asset("theme/assets/plugins/styleswitcher/jQuery.style.switcher.js") }}"></script>
 <script src="{{asset("theme/horizontal/js/custom.js")}} " ></script>
 
+<script src="{{ asset("theme/assets/plugins/wizard/jquery.steps.min.js")}}"></script>
+<script src="{{ asset("theme/assets/plugins/wizard/jquery.validate.min.js")}}"></script>
+<script src="{{ asset("theme/assets/plugins/wizard/steps.js")}}"></script>
 
-<script src="{{ asset("js/function.js") }}"></script>
+<script src="{{asset("js/functions.js")}} " ></script>
+
+
+
 
 
 

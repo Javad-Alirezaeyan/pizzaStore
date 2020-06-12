@@ -18,6 +18,7 @@ $themePath = "theme/";
 
 <title>@yield('title')</title>
 
+
 <link href="{{asset("theme/assets/plugins/bootstrap/css/bootstrap.min.css")}} " rel="stylesheet"/>
 <link href="{{asset("theme/assets/plugins/chartist-js/dist/chartist.min.css")}}" rel="stylesheet">
 <link href="{{asset("theme/assets/plugins/chartist-js/dist/chartist-init.css")}}" rel="stylesheet">
@@ -36,7 +37,7 @@ $themePath = "theme/";
 <link href="{{asset("theme/assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css")}}" rel="stylesheet">
 <link href="{{asset("theme/assets/plugins/multiselect/css/multi-select.css")}}" rel="stylesheet">
 <link href="{{asset("theme/horizontal/css/colors/blue.css")}}" rel="stylesheet">
-
+<link href="{{asset("theme/assets/plugins/wizard/steps.css")}}" rel="stylesheet">
 
 
 

@@ -1,4 +1,4 @@
-@extends("layouyts.master");
+@extends("layouts.master");
 
 @section("title")
     hello Javad
