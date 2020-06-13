@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ItemType;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller
@@ -12,7 +13,17 @@ class SiteController extends Controller
 
     public function index()
     {
-        return view("site.mainpage");
+        $itemTypeList = ItemType::all();
+        return view("site.mainpage",
+            [
+                'itemList' => $itemTypeList
+            ]
+            );
+    }
+
+    public function login()
+    {
+        return view('auth.login');
     }
 
     public function basket()
