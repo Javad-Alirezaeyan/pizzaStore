@@ -60,18 +60,26 @@ class OrderController extends Controller
         $objOrder->o_customerPhone = $phoneNumber;
         $objOrder->save();
 
+        $orderTotalPrice = 0;
         foreach ($listItem as $item){
-            continue;
+
             $objItem = Item::findOrFail($item['id']);
+
+            $totalPrice = $objItem->i_price * $item['count'];
+            $orderTotalPrice += $totalPrice;
 
             $objOrderItems = new OrderItems();
             $objOrderItems->oi_itemId = $item['id'];
-            $objOrderItems->oi_itemId = $item['count'];
-            $objOrderItems->oi_price = $objItem->i_price;
-            $objOrderItems->oi_finalPrice = $objItem->i_price;
+            $objOrderItems->oi_quantity = $item['count'];
+            $objOrderItems->oi_unitPrice = $objItem->i_price;
+            $objOrderItems->oi_totalPrice = $totalPrice;
             $objOrderItems->oi_orderId = $objOrder->o_id;
             $objOrderItems->save();
         }
+
+        $objOrder->o_totalPrice = $orderTotalPrice;
+        $objOrder->save();
+
         return Response::json([
             'status' => "ok",
             'invoiceId' => $objOrder->o_id

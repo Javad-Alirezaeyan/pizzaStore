@@ -34,7 +34,7 @@ class InvoiceGoodsList extends React.Component {
             "address": info.address,
             "phoneNumber": info.phoneNumber,
         }
-        fetch("saveOrder", {
+        fetch("/saveOrder", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -46,6 +46,7 @@ class InvoiceGoodsList extends React.Component {
             .then(function(response){
                 return response.json();
             }).then(data => {
+                console.log("data", data);
             swal("Order Submitted!", "Invoice number:"+data['invoiceId']);
             }
         )
