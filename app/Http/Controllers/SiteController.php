@@ -15,7 +15,7 @@ class SiteController extends Controller
         return view("site.mainpage");
     }
 
-    public function order()
+    public function basket()
     {
         return view('site.orderwizard');
     }

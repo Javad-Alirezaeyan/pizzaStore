@@ -23,6 +23,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        return $this->dashboard();
+    }
+
+    public function dashboard(){
         return view('home');
+    }
+
+    public function logout()
+    {
+        
     }
 }

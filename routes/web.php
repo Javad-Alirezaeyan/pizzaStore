@@ -17,10 +17,19 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-Route::get('/', 'SiteController@index')->name('index');
-Route::get('/order', 'SiteController@order')->name('order');
+
+Route::get('/', 'SiteController@index');
+Route::get('/basket', 'SiteController@basket')->name('basket');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware("auth")->group(function(){
+    Route::get('/logout', 'HomeController@logout')->name('logout');
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+
+    Route::get('/orders', 'OrderController@orderslist')->name('orders');
+    Route::get('/addNew', 'ItemController@new')->name('addNewItem');
+});
+
+
 
