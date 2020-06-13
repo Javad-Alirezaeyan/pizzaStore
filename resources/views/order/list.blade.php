@@ -6,14 +6,7 @@
 @section('content')
     <div class="card">
         <div class="card-block">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group ">
-                        <input required type="text"  name="search" id="search" placeholder="search">
-                        <button type="button" class="btn waves-effect waves-light  btn-primary" onClick="searchItem()">search</button>
-                    </div>
-                </div>
-            </div>
+
 
             <table class="table table-striped" >
                 <thead>

@@ -41,6 +41,8 @@ Route::middleware("auth")->group(function(){
 });
 
 
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::get('/getItems', 'ItemController@jsonList')->name('getItems');
 Route::get('/login', 'SiteController@login')->name('login');
 Route::post('/saveOrder', 'OrderController@save')->name('saveOrder');
