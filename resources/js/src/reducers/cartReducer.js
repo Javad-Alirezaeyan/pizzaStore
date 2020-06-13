@@ -25,7 +25,6 @@ function cartReducer (state = initialState , action){
             let items = [...(state.items)];
             items[action.item.index]['count'] = action.item.count;
             setCookie("Cart", JSON.stringify(items), 1);
-            swal("Added", "The count of item added");
             let res = {...state, items: items}
             return res
 
