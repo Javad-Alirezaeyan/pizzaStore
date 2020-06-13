@@ -14,6 +14,9 @@
 @include("layouts.partials.header")
 @include("layouts.partials.nav")
     <div id="app">
+        <div id="app">
+            @yield('slideShow')
+        </div>
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
