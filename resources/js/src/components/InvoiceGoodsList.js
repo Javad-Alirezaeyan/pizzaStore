@@ -115,7 +115,7 @@ class InvoiceGoodsList extends React.Component {
                    <div className="clearfix"></div>
                    <hr/>
 
-                   <div className="offset-md-10 col-lg-2 col-md-2">
+                   <div className="offset-md-8 col-lg-2 col-md-4">
                        <button type="button" onClick={()=>this.submitOrder()}
                                className="btn waves-effect waves-light btn-block btn-primary">Submit
                        </button>
