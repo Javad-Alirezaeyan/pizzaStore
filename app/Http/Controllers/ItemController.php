@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ItemPost;
 use App\Item;
 
 use App\ItemType;
@@ -18,12 +19,14 @@ class ItemController extends Controller
      */
     public function new(Request $req, $id =null)
     {
+
         if(!$id){
             $item = new Item();
         }
         else{
             $item = Item::findOrFail($id);
         }
+
         $itemTypeList = ItemType::all();
         return view("item.new",
             [
@@ -37,8 +40,10 @@ class ItemController extends Controller
      * @param Request $req
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function save(Request $req)
+    public function save(ItemPost $req)
     {
+        $req->validated();
+
         $item = Item::updateOrCreate(
             ['i_id' => $req->id],
             [

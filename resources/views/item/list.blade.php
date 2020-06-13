@@ -42,8 +42,8 @@
                          </td>
                          <td>
                              <button type="button" class="btn waves-effect waves-light btn-danger">Delete</button>
-                             <a href="{{ url('editItem').'/'.$item->id }}">
-                                 <button type="button" class="btn waves-effect waves-light btn-danger">Edit</button>
+                             <a href="{{ route('editItem', 1) }}">
+                                 <button type="button" class="btn waves-effect waves-light btn-info">Edit</button>
                              </a>
                          </td>
                      </tr>
