@@ -13,16 +13,30 @@ class ItemController extends Controller
 {
     //
 
-    public function new()
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function new(Request $req, $id =null)
     {
+        if(!$id){
+            $item = new Item();
+        }
+        else{
+            $item = Item::findOrFail($id);
+        }
         $itemTypeList = ItemType::all();
         return view("item.new",
             [
-                'itemTypeList' =>  $itemTypeList
-            ]
+                'itemTypeList' =>  $itemTypeList,
+                 'item' => $item
+                ]
             );
     }
 
+    /**
+     * @param Request $req
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function save(Request $req)
     {
         $item = Item::updateOrCreate(
@@ -44,33 +58,48 @@ class ItemController extends Controller
         return redirect()->route('itemsList');
     }
 
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function list(Request $request)
     {
+        $type = $request->get("type", null);
+
+        $where = [];
+        if ($type) {
+            array_push($where, ['i_it_id', '=', $type]);
+        }
+
+        $itemList = ItemResource::collection(Item::get($where));
+
         return view("item.list",
             [
-                'itemList' => $this->createList($request)
+                'itemList' => $itemList
             ]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function jsonList(Request $request)
     {
-
-        return Response::json(
-            [
-                'status' => "ok",
-                'list'=> $this->createList($request)
-            ], 201);
-    }
-
-    private function createList($request){
         $type = $request->get("type", null);
 
         $where = [];
         if (!$type) {
             array_push($where, ['i_it_id', '=', $type]);
         }
-        return new ItemResource(Item::get($where));
+        $itemList = ItemResource::collection(Item::get($where));
+        return Response::json(
+            [
+                'status' => "ok",
+                'itemList'=> $itemList
+            ], 201);
     }
+
 
 
 

@@ -51,7 +51,6 @@
                                 <label>Description</label>
                                 <textarea required id="description" name="description" class="form-control" rows="5"></textarea>
                             </div>
-
                             <section>
                                 <h3 class="box-title m-t-40"> Choose Image</h3>
                                 <hr>

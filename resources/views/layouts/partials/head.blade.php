@@ -14,7 +14,7 @@ $themePath = "theme/";
     ]); ?>
 </script>
 <!-- Favicon icon -->
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset("theme/assets/images/favicon.png") }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset("images/favicon.ico") }}">
 
 <title>@yield('title')</title>
 
@@ -26,6 +26,8 @@ $themePath = "theme/";
 <link href="{{asset("theme/assets/plugins/css-chart/css-chart.css")}}" rel="stylesheet">
 <link href="{{asset("theme/assets/plugins/morrisjs/morris.css")}}" rel="stylesheet">
 <link href="{{asset("theme/assets/plugins/c3-master/c3.min.css")}}" rel="stylesheet">
+<link href="{{asset("theme/assets/plugins/dropify/dist/css/dropify.min.css")}}" rel="stylesheet">
+
 <link href="{{asset("theme/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css")}}" rel="stylesheet">
 <link href="{{asset("theme/assets/plugins/bootstrap-select/bootstrap-select.min.css")}}" rel="stylesheet">
 <link href="{{asset("theme/assets/plugins/footable/css/footable.core.css")}}" rel="stylesheet">

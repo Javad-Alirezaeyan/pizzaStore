@@ -28,8 +28,17 @@ Route::middleware("auth")->group(function(){
     Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
     Route::get('/orders', 'OrderController@orderslist')->name('orders');
-    Route::get('/addNew', 'ItemController@new')->name('addNewItem');
+
+
 });
 
+
+Route::get('/item', 'ItemController@new')->name('item');
+Route::get('/item/{id}', 'ItemController@new')->name('editItem');
+Route::post('/saveItem', 'ItemController@save')->name('saveItem');
+Route::get('/deleteItem', 'ItemController@delete')->name('deleteItem');
+Route::get('/itemsList', 'ItemController@list')->name('itemsList');
+Route::get('/getItems', 'ItemController@jsonList')->name('getItems');
+Route::get('/changeStateItem', 'ItemController@changeState')->name('changeStateItem');
 
 
