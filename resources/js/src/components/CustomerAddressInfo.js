@@ -18,8 +18,8 @@ const mapStateToProps = (state) =>{
     render(){
         return(
             <address>
-                <h3> &nbsp;<b className="text-danger">Monster Admin</b></h3>
-                <p className="text-muted m-l-5">E 104, Dharti-2,
+                <h3> &nbsp;<b className="text-danger">Customer Info</b></h3>
+                <p className="text-muted m-l-5">
                     <br/> {this.props.firstName}  {this.props.lastName},
                     <br/> {this.props.phoneNumber},
                     <br/> {this.props.address}</p>

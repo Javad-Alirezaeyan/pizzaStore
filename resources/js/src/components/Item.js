@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import addItem from './../actions/addItem'
 
 const mapStateToProps = state =>({
-    items : state.list.items
+    items : state.list.items,
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -22,17 +22,17 @@ const mapStateToProps = state =>({
             <div className="row">
                 <div className="col-md-12">
                     <div className="card card-block printableArea">
-                        <h3><b>INVOICE</b> <span className="pull-right">#5669626</span></h3>
+                        <h3><b>INVOICE</b> <span className="pull-right">factor Id:</span></h3>
                         <hr/>
                         <div className="row">
                             <div className="col-md-12">
 
                                 <div className="pull-left">
-                                    <StoreAddress/>
+                                    <CustomerAddressInfo/>
 
                                 </div>
                                 <div className="pull-right text-right">
-                                    <CustomerAddressInfo/>
+
 
                                 </div>
                             </div>

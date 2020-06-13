@@ -2,29 +2,60 @@ import React from 'react';
 import {PriceInput} from "./style";
 import {DeliveryPrice} from "../helper/constants";
 import { connect } from 'react-redux';
+import addItem from "../actions/addItem";
 
 
 const mapStateToProps = (state) =>{
     return{
-        items : state.list.items
+        items : state.list.items,
+        customerInfo : state.customerInfo
     }
 }
-
 
 
 class InvoiceGoodsList extends React.Component {
     constructor(props) {
         super(props);
-
         this.totalPrice = 0;
         this.finalPrice = 0;
         this.deliveryPrice = DeliveryPrice;
         this.state = {
         };
 
+        this.submitOrder = this.submitOrder.bind(this);
+    }
+
+    submitOrder(){
+        let info = this.props.customerInfo;
+        var data = {
+            "list": this.props.items,
+            "firstName":  info.firstName,
+            "lastName": info.lastName,
+            "address": info.address,
+            "phoneNumber": info.phoneNumber,
+        }
+        fetch("saveOrder", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            body:  JSON.stringify(data)
+        })
+            .then(function(response){
+                return response.json();
+            }).then(data => {
+               console.log("data", data);
+            }
+        )
+            .then(function(data){
+                console.log(data)
+            });
     }
 
     createTr(item, index) {
+
         let sumPrice = item.price * item.count;
         this.totalPrice += sumPrice;
 
@@ -83,6 +114,8 @@ class InvoiceGoodsList extends React.Component {
                    </div>
                    <div className="clearfix"></div>
                    <hr/>
+
+                   <button onClick={()=>this.submitOrder()} >Submit</button>
                </div>
            </div>
         );
