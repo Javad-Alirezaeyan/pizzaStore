@@ -11,9 +11,8 @@
 
 @extends('layouts.master')
 
-@section('content')
-    <!-- start flexslider -->
-    <div class="col-lg-12">
+@section("slideShow")
+    <div class="">
         <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
@@ -24,22 +23,22 @@
                 <div class="carousel-item active">
                     <img class="d-block img-responsive" src="{{asset("storetheme/images/slider-img1.jpg")}}" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-white">First title goes here</h3>
-                        <p>this is the subcontent you can use this</p>
+                        <h3 class="text-white">Pizza 1</h3>
+                        <p>Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block img-responsive" src="{{asset("storetheme/images/slider-img2.jpg")}}" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-white">Second title goes here</h3>
-                        <p>this is the subcontent you can use this</p>
+                        <h3 class="text-white">Pizza 2</h3>
+                        <p>Pizza 2 Pizza 2 Pizza 2 Pizza 2 Pizza 2 Pizza 2 </p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block img-responsive" src="{{asset("storetheme/images/slider-img1.jpg")}}" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="text-white">Third title goes here</h3>
-                        <p>this is the subcontent you can use this</p>
+                        <h3 class="text-white">Pizza 3</h3>
+                        <p>Pizza 3 Pizza 3 Pizza 3 Pizza 3</p>
                     </div>
                 </div>
             </div>
@@ -53,23 +52,33 @@
             </a>
         </div>
     </div>
+@endsection
 
-
-    <div class="card">
+@section('content')
+    <div id="Menu" class="card">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs profile-tab" role="tablist">
-            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#pizza" role="tab">Pizza</a> </li>
-            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Hambergue</a> </li>
-            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Soda</a> </li>
+            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#pizzaTab" role="tab">Pizza</a> </li>
+            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="##hamburgerTab" role="tab">Hamburger</a> </li>
+            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#sodaTab" role="tab">Soda</a> </li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active" id="pizza" role="tabpanel">
+            <div class="tab-pane active" id="pizzaTab" role="tabpanel">
                 <div class="card-block">
-                    <div id="foodMenu"></div>
+                    <div id="pizza"></div>
+                </div>
+            </div>
+            <div class="tab-pane active" id="hamburgerTab" role="tabpanel">
+                <div class="card-block">
+                    <div id="hamburger"></div>
+                </div>
+            </div>
+            <div class="tab-pane active" id="sodaTab" role="tabpanel">
+                <div class="card-block">
+                    <div id="soda"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- end flexslider -->
 @endsection

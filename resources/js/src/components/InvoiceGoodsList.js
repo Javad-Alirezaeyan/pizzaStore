@@ -46,7 +46,7 @@ class InvoiceGoodsList extends React.Component {
             .then(function(response){
                 return response.json();
             }).then(data => {
-               console.log("data", data);
+            swal("Order Submitted!", "Invoice number:"+data['invoiceId']);
             }
         )
             .then(function(data){
@@ -115,7 +115,11 @@ class InvoiceGoodsList extends React.Component {
                    <div className="clearfix"></div>
                    <hr/>
 
-                   <button onClick={()=>this.submitOrder()} >Submit</button>
+                   <div className="offset-md-10 col-lg-2 col-md-2">
+                       <button type="button" onClick={()=>this.submitOrder()}
+                               className="btn waves-effect waves-light btn-block btn-primary">Submit
+                       </button>
+                   </div>
                </div>
            </div>
         );

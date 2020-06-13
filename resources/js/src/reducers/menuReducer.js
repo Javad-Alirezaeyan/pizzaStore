@@ -29,4 +29,51 @@ function cartReducer (state = initialState , action){
 }
 
 
+/*
+const initialState = {
+menuList : loadItems()
+}
+
+ function cartReducer (state = initialState , action){
+switch (action.type) {
+ case 'RESPONSE':
+  return {
+   ...state,
+   menuList: action.result,
+  };
+default : return state;
+
+}
+}
+
+
+async function loadItems(){
+
+ let response = await fetch('/getItems');
+ let data = await response.json()
+  //   console.log("data:", data);
+ return data['itemList'];
+/!*
+var loadedList =[] ;
+fetch("/getItems", {
+method: "get",
+headers: {
+'Accept': 'application/json',
+'Content-Type': 'application/json',
+}
+})
+.then(function(response){
+return response.json();
+}).then(data => {
+loadedList = data['itemList'];
+return loadedList;
+}
+)
+.then(function(data){
+console.log(data)
+});
+
+return loadedList;*!/
+}*/
+
 export default cartReducer

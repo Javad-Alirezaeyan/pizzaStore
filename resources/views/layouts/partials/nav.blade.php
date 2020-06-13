@@ -19,6 +19,13 @@
                 </li>
 
                 <li>
+                    <a class="has-arrow" href="#Menu" aria-expanded="false">
+                        <i class="mdi mdi-menu"></i>
+                        Menu
+                    </a>
+                </li>
+
+                <li>
                     <a class="has-arrow" href="#contactus" aria-expanded="false">
                         <i class="mdi mdi-compass-outline"></i>
                         Contact us
@@ -54,9 +61,14 @@
                             Orders
                         </a>
                     </li>
-
                     <li>
-                        <a class="has-arrow" href="{{ route("addNewItem") }}" aria-expanded="false">
+                        <a class="has-arrow" href="{{ route("itemsList") }}" aria-expanded="false">
+                            <i class="mdi mdi-new-box"></i>
+                            Items list
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="{{ route("item") }}" aria-expanded="false">
                             <i class="mdi mdi-new-box"></i>
                             Add new
                         </a>
@@ -71,7 +83,7 @@
                     </li>
 
                     <li>
-                        <a class="has-arrow" href={{ route("logout") }} aria-expanded="false">
+                        <a class="has-arrow" href={{ url("logout") }} aria-expanded="false">
                             <i class="mdi mdi-logout"></i>
                             Logout
                         </a>

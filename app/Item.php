@@ -17,7 +17,7 @@ class Item extends Model
         if($paginate){
             return $query->paginate(TABLE_ROWS_COUNT);
         }
-        return $query->get()->all();
+        return $query->get();
 
     }
 }

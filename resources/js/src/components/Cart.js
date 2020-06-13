@@ -42,6 +42,7 @@ class Cart extends React.Component {
 
 
     deleteItem(index) {
+
         this.props.deleteItem(index)
         this.setState({
             items: this.props.items,
@@ -85,7 +86,7 @@ class Cart extends React.Component {
                 <td>
                     <button type="button" className="btn btn-danger"
                             onClick={(e) => {
-                                this.deleteItem(e, index - 1)
+                                this.deleteItem( index-1)
                             }}>
                         <i className="fa fa-close"></i> Delete
                     </button>

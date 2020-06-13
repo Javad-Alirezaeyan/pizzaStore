@@ -6,29 +6,27 @@ import Invoice from "./components/Invoice";
 import { Provider} from "react-redux";
 import store from './store/store'
 import CustomerForm from "./components/CustomerForm";
+import {HAMBURGER_ID, PIZZA_ID, SODA_ID} from "./helper/constants";
 
 
-var CartComponent;
+
 
 if (document.getElementById("cart")){
-
-
-
-
-    ReactDom.render(<Provider store={store}> <Cart  /></Provider>, document.getElementById("cart"));
-    //CartComponent = ReactDom.render(<Cart itemsList={itemsList}/>, document.getElementById("cart"));
-    if (document.getElementById("cart2")){
-        ReactDom.render(<Provider store={store}> <Cart  /></Provider>, document.getElementById("cart2"));
-        ReactDom.render(<Provider store={store}><Invoice /> </Provider>, document.getElementById("invoice"));
-        ReactDom.render(<CustomerForm store={store}><Invoice /> </CustomerForm>, document.getElementById("customerInfoForm"));
-    }
-
-
-
+   ReactDom.render(<Provider store={store}> <Cart  /></Provider>, document.getElementById("cart"));
 }
 
-if (document.getElementById("foodMenu")){
-    ReactDom.render(<Provider store={store}> <FoodMenu  /></Provider>, document.getElementById("foodMenu"));
+if (document.getElementById("pizza")){
+    ReactDom.render(<Provider store={store}> <FoodMenu type={PIZZA_ID}   /></Provider>, document.getElementById("pizza"));
+  //  ReactDom.render(<Provider store={store}> <FoodMenu type={HAMBURGER_ID}  /></Provider>, document.getElementById("hamburger"));
+   // ReactDom.render(<Provider store={store}> <FoodMenu  type={SODA_ID}   /></Provider>, document.getElementById("soda"));
 }
+
+if (document.getElementById("cart2")){
+    ReactDom.render(<Provider store={store}> <Cart  /></Provider>, document.getElementById("cart2"));
+    ReactDom.render(<Provider store={store}><Invoice /> </Provider>, document.getElementById("invoice"));
+    ReactDom.render(<Provider store={store}><CustomerForm /> </Provider>, document.getElementById("customerInfoForm"));
+}
+
+
 
 

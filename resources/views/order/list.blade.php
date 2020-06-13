@@ -1,7 +1,7 @@
 
 
 @extends("layouts.master")
-@section('title', "Items List")
+@section('title', "order List")
 
 @section('content')
     <div class="card">
@@ -19,9 +19,9 @@
                 <thead>
                 <tr >
                     <th># </th>
-                    <th>Title </th>
+                    <th>Customer Name </th>
                     <th>Price</th>
-                    <th>Item Type</th>
+                    <th>Date</th>
                     <th>Operation</th>
                 </tr>
                 </thead>
@@ -33,24 +33,24 @@
                      <tr>
                          <td>{{ $i++ }}</td>
                          <td >
-                            {{ $item->i_title }}
+                            {{ $item->o_customerName }}
                          </td>
                          <td>
-                             {{ $item->i_price }}</td>
+                             {{ $item->o_finalPrice }}</td>
                          <td>
-                             {{ $item->it_title }}
+                             {{ $item->created_at }}
                          </td>
                          <td>
-                             <button type="button" class="btn waves-effect waves-light btn-danger">Delete</button>
-                             <a href="{{ route('editItem', $item->i_id) }}">
-                                 <button type="button" class="btn waves-effect waves-light btn-info">Edit</button>
+                             <a href="{{ route('order', $item->o_id ) }}">
+                                 <button type="button" class="btn waves-effect waves-light btn-info">View</button>
                              </a>
                          </td>
                      </tr>
                  @endforeach
                 </tbody>
+
                 <tfoot>
-                {{ $itemList->links() }}
+                {{  $itemList->links() }}
 
                 </tfoot>
             </table>

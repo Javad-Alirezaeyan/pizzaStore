@@ -15,12 +15,11 @@ class Item extends JsonResource
      */
     public function toArray($request)
     {
-        dd($request);
         //return parent::toArray($request);
         return[
             'id' => $this->i_id,
             'title'=> $this->i_title,
-            'image'=> $this->i_mainimage,
+            'image'=>  ImagePath."/" .$this->i_mainImage ,
             'description' =>$this->i_description,
             'price' => $this->i_price,
             'typeTitle'=> $this->it_title,

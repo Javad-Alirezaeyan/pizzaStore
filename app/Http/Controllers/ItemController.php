@@ -77,7 +77,7 @@ class ItemController extends Controller
             array_push($where, ['i_it_id', '=', $type]);
         }
 
-        $itemList = ItemResource::collection(Item::get($where));
+        $itemList = Item::get($where, true);
 
         return view("item.list",
             [
@@ -94,14 +94,26 @@ class ItemController extends Controller
         $type = $request->get("type", null);
 
         $where = [];
-        if (!$type) {
+        if ($type) {
             array_push($where, ['i_it_id', '=', $type]);
         }
-        $itemList = ItemResource::collection(Item::get($where));
+        $itemList = ItemResource::collection(Item::all());
+
+        // grouping
+        $newItemList =[];
+        $itemTypes = ItemType::all();
+        foreach ($itemTypes as $type){
+            $newItemList[$type['it_id']] = ['itemTitle'=>$type['it_title'], 'list'=>[]];
+        }
+
+        foreach ($itemList as $item){
+            array_push($newItemList[$item['i_it_id']]['list'], $item);
+        }
+
         return Response::json(
             [
                 'status' => "ok",
-                'itemList'=> $itemList
+                'itemList'=> $newItemList
             ], 201);
     }
 

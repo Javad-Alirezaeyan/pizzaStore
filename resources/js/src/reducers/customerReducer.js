@@ -4,7 +4,7 @@ const initialState = {
     address: "test",
     firstName:"test",
     lastName:"test",
-    phoneNumber: "test"
+    phoneNumber: 122
 }
 
 function ccustomerReducer (state = initialState , action){

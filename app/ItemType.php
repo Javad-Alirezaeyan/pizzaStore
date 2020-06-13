@@ -10,4 +10,5 @@ class ItemType extends Model
     protected $table = 'itemType';
     protected $primaryKey = 'it_id';
 
+
 }

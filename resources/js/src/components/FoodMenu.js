@@ -19,8 +19,10 @@ const mapStateToProps = (state) =>{
 
 
     render() {
+
+        let list = this.props.menuList;
         let i = 0;
-        const htmlItemsList = this.props.menuList.map((item) =>{
+        const htmlItemsList = list.map((item) =>{
             return <div key={i++} className="col-lg-3 col-md-6">
                 <FoodItem item={item} />
             </div>;

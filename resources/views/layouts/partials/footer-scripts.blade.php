@@ -26,10 +26,12 @@
 <script src="{{ asset("theme/assets/plugins/sweetalert/jquery.sweet-alert.custom.js") }}"></script>
 <script src="{{ asset("theme/assets/plugins/styleswitcher/jQuery.style.switcher.js") }}"></script>
 <script src="{{asset("theme/horizontal/js/custom.js")}} " ></script>
+<script src="{{asset("theme/assets/plugins/dropify/dist/js/dropify.min.js")}}"></script>
+<script src="{{asset("js/dropify-init.js")}} " ></script>
 
 <script src="{{ asset("theme/assets/plugins/wizard/jquery.steps.min.js")}}"></script>
 <script src="{{ asset("theme/assets/plugins/wizard/jquery.validate.min.js")}}"></script>
-<script src="{{ asset("theme/assets/plugins/wizard/steps.js")}}"></script>
+<script src="{{ asset("js/steps.js")}}"></script>
 
 <script src="{{asset("js/functions.js")}} " ></script>
 

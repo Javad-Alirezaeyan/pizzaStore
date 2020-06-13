@@ -18,25 +18,23 @@ function cartReducer (state = initialState , action){
             }
 
             setCookie("Cart", JSON.stringify(itemsList), 1);
-            return  Object.assign( {}, state, {
-            items : itemsList
-        })
+            swal("Added", "A new item added to the cart");
+            return {...state, items: itemsList}
 
         case ADD_COUNTER :
             let items = [...(state.items)];
             items[action.item.index]['count'] = action.item.count;
             setCookie("Cart", JSON.stringify(items), 1);
+            swal("Added", "The count of item added");
             let res = {...state, items: items}
             return res
 
         case DELETE_ITEM :
             items = [...(state.items)];
             items.splice(action.index, 1);
-            console.log("items", items);
             setCookie("Cart", JSON.stringify(items), 1);
-            return  Object.assign( {}, state, {
-                items : items
-            })
+            swal("Deleted", "Your item deleted");
+            return {...state, items: items}
 
 
         case 'GET_ITEM' : return  state.items
@@ -45,6 +43,7 @@ function cartReducer (state = initialState , action){
 
     }
 }
+
 
 
 function loadOfCoockie(){
