@@ -1,16 +1,6 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: javad
- * Date: 6/11/20
- * Time: 9:43 AM
- */
-
-?>
-
 
 @extends('layouts.master')
-
+@section('title', "home")
 @section("slideShow")
     <div class="">
         <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
@@ -57,28 +47,7 @@
 @section('content')
     <div id="Menu" class="card">
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs profile-tab" role="tablist">
-            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#pizzaTab" role="tab">Pizza</a> </li>
-            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="##hamburgerTab" role="tab">Hamburger</a> </li>
-            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#sodaTab" role="tab">Soda</a> </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="pizzaTab" role="tabpanel">
-                <div class="card-block">
-                    <div id="pizza"></div>
-                </div>
-            </div>
-            <div class="tab-pane active" id="hamburgerTab" role="tabpanel">
-                <div class="card-block">
-                    <div id="hamburger"></div>
-                </div>
-            </div>
-            <div class="tab-pane active" id="sodaTab" role="tabpanel">
-                <div class="card-block">
-                    <div id="soda"></div>
-                </div>
-            </div>
-        </div>
+
     </div>
 
 @endsection

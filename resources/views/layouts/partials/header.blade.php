@@ -39,10 +39,15 @@
                         <i class="mdi mdi-cart"></i></a>
                     <div class="dropdown-menu scale-up-left">
                         <div id="cart"></div>
-
-                        <div className="col-lg-3 col-md-4 pull-right">
-                            <button type="button" className="btn btn-block btn-lg btn-success">Continue</button>
+                        <div class="row">
+                            <div className="offset-md-10 col-lg-2 col-md-2">
+                                <a href="{{route("basket")}}">
+                                    <button type="button" class="btn btn-success"> Continue</button>
+                                </a>
+                            </div>
                         </div>
+
+
                     </div>
                 </li>
                 <!-- ============================================================== -->

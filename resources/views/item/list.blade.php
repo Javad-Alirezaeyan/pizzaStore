@@ -2,7 +2,6 @@
 
 @extends("layouts.master")
 @section('title', "Items List")
-
 @section('content')
     <div class="card">
         <div class="card-block">
@@ -26,6 +25,8 @@
                      <tr>
                          <td>{{ $i++ }}</td>
                          <td >
+                             <img src={{ route("itemImage", $item->i_mainImage) }} alt="user" width="40"
+                                  className="img-container"/>
                             {{ $item->i_title }}
                          </td>
                          <td>
@@ -34,6 +35,12 @@
                              {{ $item->it_title }}
                          </td>
                          <td>
+
+                             @if ($item->i_state == LOCKED_ITEM)
+                                 <button type="button" class="btn waves-effect waves-light btn-warning">Lock</button>
+                             @endif
+                                 <button type="button" class="btn waves-effect waves-light btn-primary">Unlock</button>
+                             @endif
                              <button type="button" class="btn waves-effect waves-light btn-danger">Delete</button>
                              <a href="{{ route('editItem', $item->i_id) }}">
                                  <button type="button" class="btn waves-effect waves-light btn-info">Edit</button>

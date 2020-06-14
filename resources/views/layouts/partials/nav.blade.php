@@ -19,7 +19,7 @@
                 </li>
 
                 <li>
-                    <a class="has-arrow" href="#Menu" aria-expanded="false">
+                    <a class="has-arrow" href="{{ route("home") }}#Main" aria-expanded="false">
                         <i class="mdi mdi-menu"></i>
                         Menu
                     </a>

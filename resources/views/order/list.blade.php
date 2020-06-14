@@ -1,8 +1,7 @@
 
 
 @extends("layouts.master")
-@section('title', "order List")
-
+@section('title', "orders")
 @section('content')
     <div class="card">
         <div class="card-block">
