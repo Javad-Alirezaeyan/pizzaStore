@@ -31,7 +31,8 @@ class ItemController extends Controller
         return view("item.new",
             [
                 'itemTypeList' =>  $itemTypeList,
-                 'item' => $item
+                 'item' => $item,
+                'id' =>$id
                 ]
             );
     }
@@ -44,6 +45,7 @@ class ItemController extends Controller
     {
         $req->validated();
 
+        var_dump($req->id);
         $item = Item::updateOrCreate(
             ['i_id' => $req->id],
             [
@@ -103,13 +105,13 @@ class ItemController extends Controller
         $newItemList =[];
         $itemTypes = ItemType::all();
         foreach ($itemTypes as $type){
-            $newItemList[$type['it_id']] = ['itemTitle'=>$type['it_title'], 'list'=>[]];
+            $newItemList[$type['it_id']] = ['idType'=>$type['it_id'], 'itemTitle'=>$type['it_title'], 'list'=>[]];
         }
 
         foreach ($itemList as $item){
             array_push($newItemList[$item['i_it_id']]['list'], $item);
         }
-
+        $newItemList = array_values($newItemList);
         return Response::json(
             [
                 'status' => "ok",
