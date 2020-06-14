@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import addCounter  from './../actions/addCounter'
 import deleteItem  from './../actions/deleteItem'
 
-
 const mapStateToProps = (state) =>{
     return{
         items : state.list.items
@@ -19,9 +18,10 @@ const mapDispatchToProps = dispatch => ({
     },
     addCounter : function (item) {
         return dispatch(addCounter(item))
-    },
+    }
 
 })
+
 
 
 class Cart extends React.Component {

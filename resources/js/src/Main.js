@@ -15,8 +15,8 @@ if (document.getElementById("cart")){
    ReactDom.render(<Provider store={store}> <Cart  /></Provider>, document.getElementById("cart"));
 }
 
-if (document.getElementById("pizza")){
-    ReactDom.render(<Provider store={store}> <FoodMenu type={PIZZA_ID}   /></Provider>, document.getElementById("pizza"));
+if (document.getElementById("Menu")){
+    ReactDom.render(<Provider store={store}> <FoodMenu   /></Provider>, document.getElementById("Menu"));
   //  ReactDom.render(<Provider store={store}> <FoodMenu type={HAMBURGER_ID}  /></Provider>, document.getElementById("hamburger"));
    // ReactDom.render(<Provider store={store}> <FoodMenu  type={SODA_ID}   /></Provider>, document.getElementById("soda"));
 }
