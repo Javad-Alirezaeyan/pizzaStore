@@ -5,8 +5,8 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="/">
                 <b>
-                    <img width="1100" height="60" src="{{ asset("images/logo.png") }}" alt="Pizza logo" class="dark-logo" />
-                    <img width="100" height="60" src="{{ asset("images/logo.png") }}" alt="Pizza Logo" class="light-logo" />
+                    <img width="1100" height="60" src="{{ asset("images/logo.jpeg") }}" alt="Pizza logo" class="dark-logo" />
+                    <img width="100" height="60" src="{{ asset("images/logo.jpeg") }}" alt="Pizza Logo" class="light-logo" />
                 </b>
 
             </a>
