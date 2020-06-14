@@ -9,13 +9,14 @@
                 <div class="card-block">
 
                     <div style="margin-top: 30px">
-                        <a href="javascript:void(0)" class="text-center db">
+                        <a href="{{ url("/") }}" class="text-center db">
                             <img width="120px" height="120px" src=" {{ asset("images/logo.jpeg") }}" alt="Home" /><br/>
                             <h3>Pizza Online</h3>
                         </a>
                     </div>
                     <h2 style="text-align: center"> {{ "Pizza online" }}</h2>
                     <hr/>
+
                     @if ($errors->has('username'))
                         <span class="help-block text-danger"><strong>{{ $errors->first('username') }}</strong>
                         </span>
@@ -55,6 +56,9 @@
                             </div>
                         </div>
                     </form>
+                    <div style="text-align: center">
+                        <a href="{{ url("/") }}">home page</a>
+                    </div>
 
                 </div>
             </div>
