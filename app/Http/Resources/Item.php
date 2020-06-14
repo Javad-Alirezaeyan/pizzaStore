@@ -19,8 +19,8 @@ class Item extends JsonResource
         return[
             'id' => $this->i_id,
             'title'=> $this->i_title,
-            'image'=>  ImagePath."/" .$this->i_mainImage ,
-            'description' =>$this->i_description,
+            'image'=>  route("itemImage",$this->i_mainImage) ,
+            'description' => $this->i_description,
             'price' => $this->i_price,
             'typeTitle'=> $this->it_title,
             'idType'=> $this->it_id,
