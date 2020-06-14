@@ -28,6 +28,7 @@ class ItemPost extends FormRequest
             'description'=> 'required|min:10',
             'price'=> 'required|numeric',
             'file'=> 'required|image',
+            'itemType'=> 'required|numeric',
         ];
     }
 }
