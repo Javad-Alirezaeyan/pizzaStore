@@ -10,7 +10,7 @@
 
                     <div style="margin-top: 30px">
                         <a href="javascript:void(0)" class="text-center db">
-                            <img width="120px" height="120px" src=" {{ asset("images/logo.png") }}" alt="Home" /><br/>
+                            <img width="120px" height="120px" src=" {{ asset("images/logo.jpeg") }}" alt="Home" /><br/>
                             <h3>Pizza Online</h3>
                         </a>
                     </div>
