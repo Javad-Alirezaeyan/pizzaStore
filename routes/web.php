@@ -19,7 +19,7 @@ use \Illuminate\Support\Facades\Storage;
 });*/
 
 
-Route::get('/', 'SiteController@index');
+Route::get('/', 'SiteController@index')->name("home");
 Route::get('/basket', 'SiteController@basket')->name('basket');
 
 Auth::routes();
