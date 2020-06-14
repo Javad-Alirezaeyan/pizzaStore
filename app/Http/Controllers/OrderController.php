@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use App\library\Delivery;
 use App\Order;
 use App\OrderItems;
 use Illuminate\Http\Request;
@@ -53,11 +54,15 @@ class OrderController extends Controller
         $address = $req->get('address', null);
         $phoneNumber = $req->get('phoneNumber', null);
 
+        $objDelivery =  new Delivery();
+        $deliveryRate = $objDelivery->getRate();
+
         $objOrder = new Order();
 
         $objOrder->o_customerName = $firstName." ".$lastName;
         $objOrder->o_customerAddrees = $address;
         $objOrder->o_customerPhone = $phoneNumber;
+        $objOrder->o_delivery = $deliveryRate;
         $objOrder->save();
 
         $orderTotalPrice = 0;
@@ -78,11 +83,23 @@ class OrderController extends Controller
         }
 
         $objOrder->o_totalPrice = $orderTotalPrice;
+        $objOrder->o_finalPrice = $orderTotalPrice + DELIVERY_PRICE;
         $objOrder->save();
 
         return Response::json([
             'status' => "ok",
             'invoiceId' => $objOrder->o_id
         ]);
+    }
+
+    public function view(Request $request, $id)
+    {
+        $objOrder = Order::findOrFail($id);
+        $itemList = OrderItems::getItemOrder([['oi_orderId', '=', $id]]);
+        return view("order.view",
+            [
+                'itemList' => $itemList,
+                'order' => $objOrder
+            ]);
     }
 }
