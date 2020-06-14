@@ -62,7 +62,7 @@ class OrderController extends Controller
         $objOrder->o_customerName = $firstName." ".$lastName;
         $objOrder->o_customerAddrees = $address;
         $objOrder->o_customerPhone = $phoneNumber;
-        $objOrder->o_delivery = $deliveryRate;
+        $objOrder->o_deliveryPrice = $deliveryRate;
         $objOrder->save();
 
         $orderTotalPrice = 0;
