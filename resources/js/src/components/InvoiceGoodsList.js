@@ -2,7 +2,8 @@ import React from 'react';
 import {PriceInput} from "./style";
 import {DeliveryPrice} from "../helper/constants";
 import { connect } from 'react-redux';
-import addItem from "../actions/addItem";
+
+import emptyCart from "../actions/emptyCart";
 
 
 const mapStateToProps = (state) =>{
@@ -11,6 +12,12 @@ const mapStateToProps = (state) =>{
         customerInfo : state.customerInfo
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    emptyCart : function() {
+        return dispatch(emptyCart())
+    },
+})
 
 
 class InvoiceGoodsList extends React.Component {
@@ -46,8 +53,9 @@ class InvoiceGoodsList extends React.Component {
             .then(function(response){
                 return response.json();
             }).then(data => {
-                console.log("data", data);
+               // console.log("data", data);
             swal("Order Submitted!", "Invoice number:"+data['invoiceId']);
+            this.props.emptyCart();
             }
         )
             .then(function(data){
@@ -128,4 +136,4 @@ class InvoiceGoodsList extends React.Component {
     }
 }
 
-export default connect (mapStateToProps)(InvoiceGoodsList)
+export default connect (mapStateToProps, mapDispatchToProps)(InvoiceGoodsList)

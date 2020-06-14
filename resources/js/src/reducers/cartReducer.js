@@ -1,4 +1,4 @@
-import {ADD_COUNTER, ADD_ITEM, DELETE_ITEM} from "../helper/constants";
+import {ADD_COUNTER, ADD_ITEM, DELETE_ITEM, EMPTY_CART} from "../helper/constants";
 
 const initialState = {
     items : loadOfCoockie()
@@ -35,6 +35,9 @@ function cartReducer (state = initialState , action){
             swal("Deleted", "Your item deleted");
             return {...state, items: items}
 
+        case EMPTY_CART :
+            setCookie("Cart", JSON.stringify([]));
+            return {...state, items: []}
 
         case 'GET_ITEM' : return  state.items
 
