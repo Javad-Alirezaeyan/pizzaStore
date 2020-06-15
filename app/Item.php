@@ -3,10 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Item extends Model
 {
     //
+    use SoftDeletes;
+
     protected $table = 'item';
     protected $primaryKey = 'i_id';
     protected $fillable = ['i_title', 'i_description', 'i_mainimage', 'i_price', 'i_it_id', 'created_at', 'updated_at'];

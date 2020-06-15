@@ -14,53 +14,87 @@
 @section('content')
 <div class="row">
     <!-- Column -->
-    <div class="col-lg-8 col-md-7">
-        <div class="card">
-            <div class="card-block">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="d-flex flex-wrap">
-                            <div>
-                                <h3 class="card-title">Sales Overview</h3>
-                                <h6 class="card-subtitle">Ample Admin Vs Pixel Admin</h6> </div>
-                            <div class="ml-auto">
-                                <ul class="list-inline">
-                                    <li>
-                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Ample</h6> </li>
-                                    <li>
-                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Pixel</h6> </li>
-                                </ul>
-                            </div>
+    <div class="col-md-8  col-lg-6">
+        <div class="row">
+            <!-- Column -->
+
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="d-flex flex-row">
+                            <div class="round round-lg align-self-center round-info"><i class="ti-wallet"></i></div>
+                            <div class="m-l-10 align-self-center">
+                                <h3 class="m-b-0 font-light" id="itemsCount">$ {{$totalPrice}}</h3>
+                                <h5 class="text-muted m-b-0">Total Sale</h5></div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="amp-pxl" style="height: 360px;"></div>
                     </div>
                 </div>
             </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="d-flex flex-row">
+                            <div class="round round-lg align-self-center round-warning"><i class="mdi mdi-cellphone-link"></i></div>
+                            <div class="m-l-10 align-self-center">
+                                <h3 class="m-b-0 font-lgiht" id="totalSale">{{$itemCount}}</h3>
+                                <h5 class="text-muted m-b-0">Total Items</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="d-flex flex-row">
+                            <div class="round round-lg align-self-center round-primary"><i class="mdi mdi-cart-outline"></i></div>
+                            <div class="m-l-10 align-self-center">
+                                <h3 class="m-b-0 font-lgiht" id="order">{{$orderCount}}</h3>
+                                <h5 class="text-muted m-b-0">Order</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-block">
+                        <div class="d-flex flex-row">
+                            <div class="round round-lg align-self-center round-danger"><i class="mdi mdi-bullseye"></i></div>
+                            <div class="m-l-10 align-self-center">
+                                <h3 class="m-b-0 font-lgiht">$687</h3>
+                                <h5 class="text-muted m-b-0">Ad. Expense</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
         </div>
     </div>
-    <div class="col-lg-4 col-md-5">
+    <div class="col-md-4 col-lg-6">
         <div class="card">
             <div class="card-block">
-                <h3 class="card-title">Our Visitors</h3>
-                <h6 class="card-subtitle">Different Devices Used to Visit</h6>
+                <h3 class="card-title">Percentage of sale itemTypes</h3>
+                <h6 class="card-subtitle"></h6>
                 <div id="visitor" style="height:290px; width:100%;"></div>
             </div>
             <div>
                 <hr class="m-t-0 m-b-0">
             </div>
             <div class="card-block text-center ">
-                <ul class="list-inline m-b-0">
-                    <li>
-                        <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10 "></i>Mobile</h6> </li>
-                    <li>
-                        <h6 class="text-muted  text-primary"><i class="fa fa-circle font-10 m-r-10"></i>Desktop</h6> </li>
-                    <li>
-                        <h6 class="text-muted  text-success"><i class="fa fa-circle font-10 m-r-10"></i>Tablet</h6> </li>
+                <ul class="list-inline m-b-0" id="itemTypeUl">
                 </ul>
             </div>
         </div>
+
     </div>
+
+
+
+
 </div>
 @endsection('content')

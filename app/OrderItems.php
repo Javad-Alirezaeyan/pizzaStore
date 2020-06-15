@@ -13,6 +13,7 @@ class OrderItems extends Model
     public static  function  getItemOrder($where =null){
 
         return OrderItems::where($where)->
-        join('item' , "oi_itemId" , '=', 'i_id')->get();
+        join('item' , "oi_itemId" , '=', 'i_id')->
+        join('itemType' , "i_it_id" , '=', 'it_id')->get();
     }
 }

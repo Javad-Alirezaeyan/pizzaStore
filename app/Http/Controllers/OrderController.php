@@ -102,4 +102,34 @@ class OrderController extends Controller
                 'order' => $objOrder
             ]);
     }
+
+
+
+    public function getPercentOfEachItemType(){
+
+        $orderItems = OrderItems::getItemOrder();
+        $totalPrice = 0;
+        $percentItems = [];
+        foreach($orderItems as $item){
+            if( !isset($percentItems[$item['it_id']])){
+                $percentItems[$item['it_id']] = [$item['it_title'], 0];
+            }
+            else{
+                $percentItems[$item['it_id']][1] += $item['oi_totalPrice'];
+            }
+            $totalPrice +=  $item['oi_totalPrice'];
+        }
+
+        $percentItems =  array_values($percentItems);
+        /*if($totalPrice > 0){
+            for($i = 0; $i < count($percentItems); $i++){
+                $percentItems[$i][1]  = intval(round($percentItems[$i][1] / $totalPrice * 100));
+            }
+        }*/
+
+        return  Response::json([
+            'status'=> 'ok',
+            'percentage' => $percentItems
+        ]);
+    }
 }

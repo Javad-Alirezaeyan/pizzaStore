@@ -138,9 +138,8 @@ class ItemController extends Controller
 
     }
 
-    public function delete(Request $request)
+    public function delete(Request $request, $id)
     {
-        $id = $request->get('id', null);
 
         $objItem = Item::findOrFail($id);
         $objItem->delete();

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Item;
+use App\Order;
+use App\OrderItems;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -27,7 +30,12 @@ class HomeController extends Controller
     }
 
     public function dashboard(){
-        return view('home.dashboard');
+        return view('home.dashboard',
+            [
+                'totalPrice' => OrderItems::sum("oi_totalPrice"),
+                'itemCount' => Item::count(),
+                'orderCount' => Order::count()
+            ]);
     }
 
 

@@ -36,7 +36,7 @@
                          </td>
                          <td>
 
-                             <button type="button" class="btn waves-effect waves-light btn-danger">Delete</button>
+                             <button type="button" class="btn waves-effect waves-light btn-danger" onclick="deleteItem({{$item->i_id}})">Delete</button>
                              <a href="{{ route('editItem', $item->i_id) }}">
                                  <button type="button" class="btn waves-effect waves-light btn-info">Edit</button>
                              </a>
