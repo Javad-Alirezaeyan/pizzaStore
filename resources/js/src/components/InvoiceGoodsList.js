@@ -34,6 +34,11 @@ class InvoiceGoodsList extends React.Component {
 
     submitOrder(){
         let info = this.props.customerInfo;
+        console.log((this.props.items));
+        if ((this.props.items).length == 0){
+            swal("Rejected!", "Your basket is empty", 'warning');
+            return;
+        }
         var data = {
             "list": this.props.items,
             "firstName":  info.firstName,

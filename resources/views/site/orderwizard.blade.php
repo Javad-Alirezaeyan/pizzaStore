@@ -8,7 +8,7 @@
                 <div class="card-block">
                     <h4 class="card-title">Order</h4>
 
-                    <form action="javascript:test1()" class="validation-wizard wizard-circle">
+                    <form action="#" class="validation-wizard wizard-circle">
                         <!-- Step 1 -->
                         <h6>Cart</h6>
                         <section>
