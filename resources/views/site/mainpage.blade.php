@@ -2,7 +2,11 @@
 @extends('layouts.master')
 @section('title', "home")
 @section("slideShow")
-    <div class="">
+
+@endsection
+
+@section('content')
+    <div class="" >
         <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
@@ -28,7 +32,7 @@
                     <img class="d-block img-responsive"  src="{{asset("images/slider-3.jpg")}}" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="text-white">Pizza 3</h3>
-                        <p>Pizza 3 Pizza 3 Pizza 3 Pizza 3</p>
+                        <p>Pizza 3 Pizza 3 Pizza 3 Pizza 3 Pizza 3 Pizza 3 Pizza 3</p>
                     </div>
                 </div>
             </div>
@@ -42,10 +46,10 @@
             </a>
         </div>
     </div>
-@endsection
+    <div id="menufood" class="card">
+        <div id="Menu">
 
-@section('content')
-    <div id="Menu" class="card">
+        </div>
         <!-- Nav tabs -->
 
     </div>
