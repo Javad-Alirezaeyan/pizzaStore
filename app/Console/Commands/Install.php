@@ -69,6 +69,11 @@ class Install extends Command
                 $this->getAdminConfiguration();
             }
 
+            if ($this->confirm('Do you want to insert some fake records in the client table in database automatically? [y|N]')) {
+
+                Artisan::call(' db:seed ');
+            }
+
             // Artisan::call('db:seed --class=UsersTableSeeder');
             $this->info("Laravel development is accessible on port 8080:");
             exec("x-www-browser 127.0.0.1:8080");
