@@ -40,6 +40,7 @@ $themePath = "theme/";
 <link href="{{asset("theme/assets/plugins/multiselect/css/multi-select.css")}}" rel="stylesheet">
 <link href="{{asset("theme/horizontal/css/colors/blue.css")}}" rel="stylesheet">
 <link href="{{asset("theme/assets/plugins/wizard/steps.css")}}" rel="stylesheet">
+<link href="{{asset("css/main.css")}}" rel="stylesheet">
 
 
 

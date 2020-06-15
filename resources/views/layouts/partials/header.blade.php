@@ -1,6 +1,6 @@
 
 
-<header class="topbar">
+<header class="topbar" style="position: fixed; top: 0px; width: 100%;">
     <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">

@@ -7,7 +7,7 @@ import TabFoodMenu from "./TabFoodMenu";
 
 
 const mapStateToProps = (state) => {
-    console.log("test:",);
+
     return {
         menuList: state.menu.menuList,
         product2: state.menu.products,

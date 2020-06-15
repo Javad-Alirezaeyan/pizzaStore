@@ -11,21 +11,21 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <img class="d-block img-responsive" src="{{asset("storetheme/images/slider-img1.jpg")}}" alt="First slide">
+                    <img class="d-block img-responsive"  src="{{asset("images/slider-1.jpg")}}" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="text-white">Pizza 1</h3>
                         <p>Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1 Pizza 1</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block img-responsive" src="{{asset("storetheme/images/slider-img2.jpg")}}" alt="Second slide">
+                    <img class="d-block img-responsive"  src="{{asset("images/slider-2.jpg")}}" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="text-white">Pizza 2</h3>
                         <p>Pizza 2 Pizza 2 Pizza 2 Pizza 2 Pizza 2 Pizza 2 </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block img-responsive" src="{{asset("storetheme/images/slider-img1.jpg")}}" alt="Third slide">
+                    <img class="d-block img-responsive"  src="{{asset("images/slider-3.jpg")}}" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="text-white">Pizza 3</h3>
                         <p>Pizza 3 Pizza 3 Pizza 3 Pizza 3</p>
