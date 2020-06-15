@@ -17,8 +17,8 @@ if ($errors->any()){
 else{
     $title = $item->i_title  ;
     $price = $item->i_price  ;
-    $description = $item->i_description  ;
-    $itemType =  $item->i_it_type;
+    $description = $item->i_description ;
+    $itemType =  $item->i_it_id;
     $id = $item->i_id ;
 }
 
