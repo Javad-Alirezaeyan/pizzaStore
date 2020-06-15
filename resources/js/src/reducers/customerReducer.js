@@ -1,21 +1,23 @@
 import {SET_IINFO} from "../helper/constants";
 
 const initialState = {
-    address: "test",
-    firstName:"test",
-    lastName:"test",
-    phoneNumber: 122
+    address: "",
+    firstName:"",
+    lastName:"",
+    phoneNumber: ""
 }
 
 function ccustomerReducer (state = initialState , action){
     switch (action.type) {
         case SET_IINFO:
+
+            let item = action.item;
             return {
                 ...state,
-                address: action.address,
-                firstName: action.firstName,
-                lastName: action.address,
-                counter: action.phoneNumber,
+                address: item.address,
+                firstName: item.firstName,
+                lastName: item.address,
+                counter: item.phoneNumber,
             }
         default : return state;
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {PriceInput} from "./style";
+import setCustomerInfo from "../actions/setCustomerInfo";
 
 
 const mapStateToProps = (state) =>{
@@ -12,6 +13,12 @@ const mapStateToProps = (state) =>{
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    setCustomerInfo : function(info) {
+        return dispatch(setCustomerInfo(info))
+    }
+})
+
 
 
 class CustomerForm extends React.Component{
@@ -19,10 +26,23 @@ class CustomerForm extends React.Component{
     constructor(props){
         super(props)
 
-        this.firstName = this.props.firstName;
-        this.lastName = this.props.lastName;
-        this.address = this.props.address;
-        this.phoneNumber = this.props.phoneNumber;
+        this.firstName =  React.createRef();
+        this.lastName = React.createRef();
+        this.address = React.createRef();
+        this.phoneNumber = React.createRef();
+
+        this.setCustomerInfo = this.setCustomerInfo.bind(this)
+    }
+
+     setCustomerInfo(){
+        this.props.setCustomerInfo(
+            {
+                'firstName': this.firstName.current.value,
+                'lastName': this.lastName.current.value,
+                'address': this.address.current.value,
+                'phoneNumber': this.phoneNumber.current.value,
+            }
+        );
     }
 
     render(){
@@ -34,6 +54,7 @@ class CustomerForm extends React.Component{
                            <label htmlFor="firstName"> First Name : <span className="danger">*</span> </label>
                            <input type="text"  className="form-control required" id="firstName" name="firstName"
                                   ref={this.firstName}
+                                  onBlur={this.setCustomerInfo}
                                  defaultValue ={this.props.firstName}
                            /></div>
                    </div>
@@ -41,7 +62,8 @@ class CustomerForm extends React.Component{
                        <div className="form-group">
                            <label htmlFor="lastName"> Last Name : <span className="danger">*</span> </label>
                            <input type="text" className="form-control required" id="lastName" name="lastName"
-                                  ref={this.firstName}
+                                  ref={this.lastName}
+                                  onBlur={this.setCustomerInfo}
                                   defaultValue ={this.props.lastName}
                            /></div>
                    </div>
@@ -52,6 +74,7 @@ class CustomerForm extends React.Component{
                            <label htmlFor="address"> Address : <span className="danger">*</span> </label>
                            <input type="text" className="form-control required" id="address" name="address"
                                   ref={this.address}
+                                  onBlur={this.setCustomerInfo}
                                   defaultValue ={this.props.address}
 
                            /></div>
@@ -61,6 +84,7 @@ class CustomerForm extends React.Component{
                            <label htmlFor="phoneNumber">Phone Number :</label>
                            <input type="text" className="form-control" name="phoneNumber" id="phoneNumber"
                                   ref={this.phoneNumber}
+                                  onBlur={this.setCustomerInfo}
                                   defaultValue ={this.props.phoneNumber}
                            /></div>
                    </div>
@@ -71,4 +95,4 @@ class CustomerForm extends React.Component{
 
 }
 
-export default connect (mapStateToProps)(CustomerForm)
+export default connect (mapStateToProps, mapDispatchToProps)(CustomerForm)
