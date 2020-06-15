@@ -10,3 +10,4 @@ define("ORDER_REGISTERED", 0);
 define("ORDER_PAYED", 1);
 define("ORDER_DELIVERED", 2);
 define("ORDER_REJECTED", 3);
+define("AdministratorRole", "admin");
