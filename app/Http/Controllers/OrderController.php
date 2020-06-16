@@ -37,13 +37,13 @@ class OrderController extends Controller
      */
     public function save(Request $req)
     {
+
         //validating the input values
         $validator = Validator::make($req->all(),
             [
                 'firstName'=>'required|min:3|max:200',
                 'lastName'=> 'required|min:3|max:200',
-                'address'=> 'required|min:3|max:500',
-                'phoneNumber'=> 'numeric'
+                'address'=> 'required|min:3|max:500'
             ]
             );
 
@@ -53,7 +53,7 @@ class OrderController extends Controller
                     "status"=> "error",
                     "message" => "the input values are wrong",
                     "error"=>  $validator->errors()
-                ], 200);
+                ], 400);
         }
 
 
