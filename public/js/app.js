@@ -72075,8 +72075,7 @@ if (document.getElementById("cart")) {
 if (document.getElementById("Menu")) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_5__["Provider"], {
     store: _store_store__WEBPACK_IMPORTED_MODULE_6__["default"]
-  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FoodMenu__WEBPACK_IMPORTED_MODULE_2__["default"], null)), document.getElementById("Menu")); //  ReactDom.render(<Provider store={store}> <FoodMenu type={HAMBURGER_ID}  /></Provider>, document.getElementById("hamburger"));
-  // ReactDom.render(<Provider store={store}> <FoodMenu  type={SODA_ID}   /></Provider>, document.getElementById("soda"));
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_FoodMenu__WEBPACK_IMPORTED_MODULE_2__["default"], null)), document.getElementById("Menu"));
 }
 
 if (document.getElementById("cart2")) {
@@ -72332,6 +72331,10 @@ var mapStateToProps = function mapStateToProps(state) {
     items: state.list.items
   };
 };
+/**
+ * mapping two functions to the Cart components
+ */
+
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
@@ -72343,6 +72346,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     }
   };
 };
+/**
+ * this components creates an interface to show the selected items by the customer. This component has been used in
+ * different parts of the application. Also this component is connected to the store
+ */
+
 
 var Cart = /*#__PURE__*/function (_React$Component) {
   _inherits(Cart, _React$Component);
@@ -72365,15 +72373,26 @@ var Cart = /*#__PURE__*/function (_React$Component) {
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     return _this;
   }
+  /**
+   * when the customer clicks on the 'Delete' button, this method will be called. This method then calls a method
+   * that is also called deleteItem in the 'cartreducer'
+   */
+
 
   _createClass(Cart, [{
     key: "deleteItem",
     value: function deleteItem(index) {
+      //calling a method from the cartReducer
       this.props.deleteItem(index);
       this.setState({
         items: this.props.items
       });
     }
+    /**
+     *  when the customer changes the count of ordered item, this method will be called. This method then calls a method
+     * that is also called addCounter in the 'cartreducer'
+     */
+
   }, {
     key: "countItemChange",
     value: function countItemChange(e, index) {
@@ -72382,6 +72401,10 @@ var Cart = /*#__PURE__*/function (_React$Component) {
         'index': index
       });
     }
+    /**
+     * To cretae a row in the table of the basket
+     */
+
   }, {
     key: "createTr",
     value: function createTr(item, index) {
@@ -72428,7 +72451,8 @@ var Cart = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var i = 1;
-      this.finalPrice = 0;
+      this.finalPrice = 0; // this.props.items returns the list of items in the store
+
       var trs = this.props.items.map(function (item) {
         return _this3.createTr(item, i++);
       });
@@ -72451,7 +72475,8 @@ var Cart = /*#__PURE__*/function (_React$Component) {
   }]);
 
   return Cart;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); //mapping the defined functions to the components
+
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Cart));
 
@@ -72493,6 +72518,12 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+/**
+ * firstName of customer
+ * lastName of customer
+ * address of customer,
+ * phone number of the customer
+ */
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
@@ -72502,6 +72533,10 @@ var mapStateToProps = function mapStateToProps(state) {
     phoneNumber: state.customerInfo.phoneNumber
   };
 };
+/**
+ * this component creates an interface to show the information of the customers. This is useful showing information in the invoice
+ */
+
 
 var CustomerAddressInfo = /*#__PURE__*/function (_React$Component) {
   _inherits(CustomerAddressInfo, _React$Component);
@@ -72589,6 +72624,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     }
   };
 };
+/**
+ * This component renders a form to receive the information of customer when they want to register an order
+ * this component is connected to the store
+ */
+
 
 var CustomerForm = /*#__PURE__*/function (_React$Component) {
   _inherits(CustomerForm, _React$Component);
@@ -72757,6 +72797,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchProducts: _api_fetchdata__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, dispatch);
 };
+/**
+ * this component create a menu to show items. This component first create a menu tab and then renders each group of items in the tab.
+ * Tab is seperated by their types
+ */
+
 
 var FoodMenu = /*#__PURE__*/function (_React$Component) {
   _inherits(FoodMenu, _React$Component);
@@ -72786,7 +72831,6 @@ var FoodMenu = /*#__PURE__*/function (_React$Component) {
       var sectionItemsFood = "";
 
       if (list.length > 0) {
-        console.log("items:", list[1]);
         menuTitle = list.map(function (item) {
           var active = i == 0 ? "active" : "";
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -72879,6 +72923,11 @@ var mapStateToProps = function mapStateToProps(state) {
     items: state.list.items
   };
 };
+/**
+ * To show invoice
+ * this component takes the all information  from the  store
+ */
+
 
 var Invoice = /*#__PURE__*/function (_React$Component) {
   _inherits(Invoice, _React$Component);
@@ -72980,6 +73029,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     }
   };
 };
+/**
+ * this components renders the table of items showing in the invoice.
+ * Also it register the order in the server and empties the basket with calling a method of the reducer
+ */
+
 
 var InvoiceGoodsList = /*#__PURE__*/function (_React$Component) {
   _inherits(InvoiceGoodsList, _React$Component);
@@ -72999,6 +73053,10 @@ var InvoiceGoodsList = /*#__PURE__*/function (_React$Component) {
     _this.submitOrder = _this.submitOrder.bind(_assertThisInitialized(_this));
     return _this;
   }
+  /**
+   * sending the basket to the server
+   */
+
 
   _createClass(InvoiceGoodsList, [{
     key: "submitOrder",
@@ -73006,7 +73064,6 @@ var InvoiceGoodsList = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       var info = this.props.customerInfo;
-      console.log(this.props.items);
 
       if (this.props.items.length == 0) {
         swal("Rejected!", "Your basket is empty", 'warning');
@@ -73031,7 +73088,7 @@ var InvoiceGoodsList = /*#__PURE__*/function (_React$Component) {
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        // console.log("data", data);
+        // if the order has been registered successfully
         swal("Order Submitted!", "Invoice number:" + data['invoiceId']);
 
         _this2.props.emptyCart();
@@ -73150,6 +73207,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     }
   };
 };
+/**
+ * 'Item' component renders an items, it cill be called a lot in the FoodMenu
+ */
+
 
 var Item = /*#__PURE__*/function (_React$Component) {
   _inherits(Item, _React$Component);
@@ -73186,6 +73247,9 @@ var Item = /*#__PURE__*/function (_React$Component) {
         className: "el-card-avatar el-overlay-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: item.image,
+        style: {
+          height: "300px"
+        },
         alt: "user"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "el-overlay"
@@ -73215,7 +73279,7 @@ var Item = /*#__PURE__*/function (_React$Component) {
         className: "box-title "
       }, item.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "text-center pricing-header"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_style__WEBPACK_IMPORTED_MODULE_1__["PriceSign"], null, "$"), item.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, item.detail))));
+      }, "$", item.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, item.description))));
     }
   }]);
 
@@ -73349,7 +73413,6 @@ var TabFoodMenu = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       var list = this.props.list;
-      console.log("items22:", this.props.list);
       var i = 0;
       var htmlItemsList = "";
 
@@ -73611,7 +73674,7 @@ function ccustomerReducer() {
       return _objectSpread(_objectSpread({}, state), {}, {
         address: item.address,
         firstName: item.firstName,
-        lastName: item.address,
+        lastName: item.lastName,
         counter: item.phoneNumber
       });
 
