@@ -1,4 +1,5 @@
 version: '2'
+
 services:
 
   # The Application
@@ -33,10 +34,10 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
     environment:
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        MYSQL_DATABASE: ${MYSQL_DATABASE}
-        MYSQL_USER: ${MYSQL_USER}
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_ROOT_PASSWORD: "qaz"
+        MYSQL_DATABASE: ${DB_DATABASE}
+        MYSQL_USER:     ${DB_USERNAME}
+        MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "33061:3306"
 
