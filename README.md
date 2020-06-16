@@ -59,6 +59,7 @@ Other:
 
 ##install
 
+#### a)First way
  1. Clone the source code from github repository. To do that open terminal and type the following command:
 
         git clone https://github.com/Javad-Alirezaeyan/pizzaStore.git
@@ -68,10 +69,19 @@ Other:
         cd pizzaStore
 3. Configure the variables of mysql database in the .evn fil
 
-4. run this command to install application and  initializing the setting
+4.  run the following command to install react packages
+       
+        npm run install
+
+5. run this command to install application and  initializing the setting
 
        php artisan make:install
 
+#### b) second way
+###### Using docker
+    
+    
+    
 ##screenshots
 
 
