@@ -13,7 +13,6 @@ class TabFoodMenu extends React.Component {
     render() {
 
         let list = this.props.list;
-        console.log("items22:", this.props.list);
         let i = 0;
 
         var htmlItemsList = "";

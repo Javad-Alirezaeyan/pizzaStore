@@ -38,7 +38,7 @@ class Item extends React.Component {
             <div className="card">
                 <div className="el-card-item">
                     <div className="el-card-avatar el-overlay-1">
-                        <img src={item.image} alt="user"/>
+                        <img src={item.image} style={{height : "300px"}} alt="user"/>
                         <div className="el-overlay">
                             <ul className="el-info">
                                 <li>
@@ -64,9 +64,9 @@ class Item extends React.Component {
                     </div>
                     <div className=" pricing-box el-card-content">
                         <h3 className="box-title ">{ item.title}</h3>
-                        <h2  className="text-center pricing-header" ><PriceSign>$</PriceSign>{item.price}</h2>
+                        <h2  className="text-center pricing-header" >${item.price}</h2>
                         <br/>
-                        <div>{item.detail}</div>
+                        <div>{item.description}</div>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ function ccustomerReducer (state = initialState , action){
                 ...state,
                 address: item.address,
                 firstName: item.firstName,
-                lastName: item.address,
+                lastName: item.lastName,
                 counter: item.phoneNumber,
             }
         default : return state;

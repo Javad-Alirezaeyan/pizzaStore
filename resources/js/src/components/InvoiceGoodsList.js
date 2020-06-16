@@ -39,7 +39,7 @@ class InvoiceGoodsList extends React.Component {
      */
     submitOrder() {
         let info = this.props.customerInfo;
-        console.log((this.props.items));
+
         if ((this.props.items).length == 0) {
             swal("Rejected!", "Your basket is empty", 'warning');
             return;
@@ -51,6 +51,7 @@ class InvoiceGoodsList extends React.Component {
             "address": info.address,
             "phoneNumber": info.phoneNumber,
         }
+
         fetch("/saveOrder", {
             method: "POST",
             headers: {
