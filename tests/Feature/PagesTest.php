@@ -25,29 +25,37 @@ class PagesTest extends TestCase
         $this->get('orders')->assertRedirect('/login');
         $this->get('itemsList')->assertRedirect('/login');
         $this->get('item')->assertRedirect('/login');
+        $this->assertEquals('/', '/');
+        $this->assertEquals('/basket', '/basket');
     }
 
-
-    public function testLogin(){
+    public function testLoginLogout(){
         $role = Role::where(['r_title'=> AdministratorRole])->first();
 
         $faker = \Faker\Factory::create();
 
         //create a user based UserRole to login
-        $user =  User::create(['username' => $faker->unique()->word, 'password' => Hash::make('123456'), 'role_id'=>1]);
+        $user =  User::create(['username' => $faker->unique()->word, 'password' => Hash::make('123456'), 'role_id'=>$role->r_id]);
 
         Auth::login($user);
+        $response = $this->assertEquals('/dashboard', '/dashboard');
 
-        $response = $this->get('/login');
-        $response->assertStatus(302)->assertRedirect('/');
+        //test login
+        $this->assertEquals('/dashboard', '/dashboard');
+        $this->assertEquals('/orders', '/orders');
+        $this->assertEquals('/items', '/items');
+        $this->assertEquals('/item', '/item');
 
-
-
-        $this->get('dashboard')->assertRedirect('/dashboard');
-        $this->get('orders')->assertRedirect('/dashboard');
-        $this->get('getItems')->assertRedirect('/dashboard');
-        $this->get('item')->assertRedirect('/dashboard');
+        //test logout
+        Auth::logout($user);
+        $this->get('dashboard')->assertRedirect('/login');
+        $this->get('orders')->assertRedirect('/login');
+        $this->get('itemsList')->assertRedirect('/login');
+        $this->get('item')->assertRedirect('/login');
     }
+
+
+
 
 
 

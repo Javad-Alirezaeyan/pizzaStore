@@ -26,10 +26,10 @@ class AddForeignKeysToItemTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('item', function(Blueprint $table)
+		/*Schema::table('item', function(Blueprint $table)
 		{
 			$table->dropForeign('Item to ItemType');
-		});
+		});*/
 	}
 
 }

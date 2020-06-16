@@ -27,11 +27,11 @@ class AddForeignKeysToOrderItemsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('orderItems', function(Blueprint $table)
+		/*Schema::table('orderItems', function(Blueprint $table)
 		{
 			$table->dropForeign('OrderItems to Items');
 			$table->dropForeign('OrderItems to Orders');
-		});
+		});*/
 	}
 
 }
