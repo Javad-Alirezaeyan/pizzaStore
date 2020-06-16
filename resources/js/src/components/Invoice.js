@@ -11,6 +11,10 @@ const mapStateToProps = state =>({
     items : state.list.items
 })
 
+/**
+ * To show invoice
+ * this component takes the all information  from the  store
+ */
  class Invoice extends React.Component{
 
     constructor(props){

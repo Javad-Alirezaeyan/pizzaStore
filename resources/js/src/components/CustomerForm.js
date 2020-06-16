@@ -20,7 +20,10 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-
+/**
+ * This component renders a form to receive the information of customer when they want to register an order
+ * this component is connected to the store
+ */
 class CustomerForm extends React.Component{
 
     constructor(props){

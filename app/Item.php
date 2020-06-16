@@ -14,6 +14,12 @@ class Item extends Model
     protected $primaryKey = 'i_id';
     protected $fillable = ['i_title', 'i_description', 'i_mainimage', 'i_price', 'i_it_id', 'created_at', 'updated_at'];
 
+    /**
+     * @param $where
+     * @param bool $paginate
+     * @return mixed
+     * this method returns the items
+     */
     public static function get($where, $paginate = false)
     {
         $query = Item::where($where)->join('itemType' , "it_id", '=' , 'i_it_id');

@@ -20,6 +20,10 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 
+/**
+ * this component create a menu to show items. This component first create a menu tab and then renders each group of items in the tab.
+ * Tab is seperated by their types
+ */
 class FoodMenu extends React.Component {
     constructor(props) {
         super(props);
@@ -41,7 +45,7 @@ class FoodMenu extends React.Component {
         var menuTitle = "";
         var sectionItemsFood = "";
         if (list.length > 0) {
-            console.log("items:", (list[1]));
+
             menuTitle = list.map((item) => {
                 let active = i==0 ? "active" : "";
                 return <li key={"li" + (i++)} className="nav-item">

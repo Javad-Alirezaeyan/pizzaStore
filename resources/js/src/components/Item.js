@@ -14,6 +14,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
+/**
+ * 'Item' component renders an items, it cill be called a lot in the FoodMenu
+ */
 class Item extends React.Component {
 
     constructor(props) {

@@ -6,12 +6,16 @@ import { connect } from 'react-redux';
 import addCounter  from './../actions/addCounter'
 import deleteItem  from './../actions/deleteItem'
 
+
 const mapStateToProps = (state) =>{
     return{
         items : state.list.items
     }
 }
 
+/**
+ * mapping two functions to the Cart components
+ */
 const mapDispatchToProps = dispatch => ({
     deleteItem : function(index) {
         return dispatch(deleteItem(index))
@@ -23,8 +27,12 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-
+/**
+ * this components creates an interface to show the selected items by the customer. This component has been used in
+ * different parts of the application. Also this component is connected to the store
+ */
 class Cart extends React.Component {
+
     constructor(props) {
         super(props);
 
@@ -40,21 +48,30 @@ class Cart extends React.Component {
     }
 
 
-
+    /**
+     * when the customer clicks on the 'Delete' button, this method will be called. This method then calls a method
+     * that is also called deleteItem in the 'cartreducer'
+     */
     deleteItem(index) {
-
+        //calling a method from the cartReducer
         this.props.deleteItem(index)
         this.setState({
             items: this.props.items,
         })
     }
 
-
+    /**
+     *  when the customer changes the count of ordered item, this method will be called. This method then calls a method
+     * that is also called addCounter in the 'cartreducer'
+     */
     countItemChange(e, index) {
 
         this.props.addCounter({'count': e.target.value , 'index': index});
     }
 
+    /**
+     * To cretae a row in the table of the basket
+     */
     createTr(item, index) {
 
         let sumPrice = item.price * item.count;
@@ -100,7 +117,7 @@ class Cart extends React.Component {
     render() {
         let i = 1;
         this.finalPrice = 0;
-
+        // this.props.items returns the list of items in the store
         let trs = this.props.items.map((item) => {
                 return this.createTr(item, i++)
             }
@@ -141,4 +158,5 @@ class Cart extends React.Component {
     }
 }
 
+//mapping the defined functions to the components
 export default connect (mapStateToProps, mapDispatchToProps)(Cart)

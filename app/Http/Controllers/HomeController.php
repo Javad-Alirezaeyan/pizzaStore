@@ -29,6 +29,10 @@ class HomeController extends Controller
         return $this->dashboard();
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * this method shows the dashboard page, this method will be directly requested after login
+     */
     public function dashboard(){
         return view('home.dashboard',
             [

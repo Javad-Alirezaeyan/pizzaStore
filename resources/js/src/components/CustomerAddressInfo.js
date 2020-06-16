@@ -3,6 +3,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
+/**
+ * firstName of customer
+ * lastName of customer
+ * address of customer,
+ * phone number of the customer
+ */
 const mapStateToProps = (state) =>{
     return{
         firstName : state.customerInfo.firstName,
@@ -12,6 +18,9 @@ const mapStateToProps = (state) =>{
     }
 }
 
+/**
+ * this component creates an interface to show the information of the customers. This is useful showing information in the invoice
+ */
  class CustomerAddressInfo extends React.Component{
 
 
