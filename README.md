@@ -71,7 +71,7 @@ Other:
 
 4.  run the following command to install react packages
        
-        npm run install
+        npm  install
 
 5. run this command to install application and  initializing the setting
 
