@@ -95,7 +95,7 @@ class OrderController extends Controller
 
         //saving price in the 'Order' model
         $objOrder->o_totalPrice = $orderTotalPrice;
-        $objOrder->o_finalPrice = $orderTotalPrice + DELIVERY_PRICE;
+        $objOrder->o_finalPrice = $orderTotalPrice + $deliveryRate;
         $objOrder->save();
 
         return Response::json([
