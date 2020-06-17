@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\ItemType;
 use App\Role;
 use App\User;
 use Illuminate\Console\Command;
@@ -69,9 +70,10 @@ class Install extends Command
                 $this->getAdminConfiguration();
             }
 
+            Artisan::call(' db:seed  --class=ItemTypesSeeder');
             if ($this->confirm('Do you want to insert some fake records in the client table in database automatically? [y|N]')) {
-
-                Artisan::call(' db:seed ');
+                $this->info("it takes a few minutes");
+                Artisan::call(' db:seed  --class=ItemSeeder');
             }
 
             // Artisan::call('db:seed --class=UsersTableSeeder');
@@ -97,16 +99,19 @@ class Install extends Command
 
     private function setAdminuser($username, $pass){
         //find id of admin role
+
         $role = Role::where('r_title', AdministratorRole)->first();
         if(!$role){
             $role = new Role();
             $role->r_title = AdministratorRole;
             $role->save();
         }
+
+        $roleId = $role->r_id;
         DB::table('users')->insert([
-            'username' => $username ,
+            'username' => $username,
             'password' => Hash::make($pass),
-            'role_id' => $role->r_id,
+            'role_id' => $roleId,
         ]);
     }
 

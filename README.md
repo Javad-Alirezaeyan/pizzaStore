@@ -67,7 +67,7 @@ Other:
 2. Then, open  pizzaStore  directory with command:
 
         cd pizzaStore
-3. Configure the variables of mysql database in the .evn fil
+3. Configure the variables of mysql database in the .evn fil and create a emty databse in MySql
 
 4.  run the following command to install react packages
        
