@@ -75,7 +75,7 @@ Other:
 
 5. run this command to install application and  initializing the setting
 
-       php artisan make:install
+       php artisan pizza:install
 
 #### b) second way
 ###### Using docker
